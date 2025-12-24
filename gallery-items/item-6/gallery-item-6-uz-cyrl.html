@@ -1,0 +1,293 @@
+﻿<!DOCTYPE html>
+<html lang="uz-Cyrl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Технофест 2023 - Галерея</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        /* responsive video lightbox (gallery-item-4 style) */
+        #video-lightbox {
+            display: none;
+            position: fixed;
+            inset: 0;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0,0,0,0.8);
+            z-index: 9999;
+        }
+        #video-lightbox .video-modal-content {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            width: 90%;
+            max-width: 900px;
+            background: #000;
+        }
+        #video-lightbox .video-modal-content iframe,
+        #video-lightbox .video-modal-content video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+        #video-modal-close, .modal-close {
+            position: absolute;
+            right: 12px;
+            top: 12px;
+            background: transparent;
+            color: #fff;
+            border: 0;
+            font-size: 28px;
+            cursor: pointer;
+            z-index: 10000;
+        }
+
+        /* FIXED: two cards side-by-side, no overlap */
+        .video-grid-normal {
+            display: flex;
+            gap: 18px;
+            flex-wrap: wrap;
+            align-items: flex-start;
+            margin-top: 18px;
+        }
+        .video-card {
+            flex: 0 0 calc(50% - 9px);
+            max-width: calc(50% - 9px);
+            box-sizing: border-box;
+            cursor: pointer;
+        }
+        .video-preview-wrapper {
+            position: relative;
+            width: 100%;
+            padding-top: 56.25%;
+            overflow: hidden;
+            background: #111;
+            border-radius: 6px;
+        }
+        .video-preview-wrapper img,
+        .video-preview-wrapper video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .story-play-button {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 32px;
+            pointer-events: none;
+        }
+        .video-card p { margin-top: 8px; }
+
+        @media (max-width:700px) {
+            .video-card { flex: 0 0 100%; max-width: 100%; }
+        }
+
+        /* photo grid kept */
+        .photo-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:12px; margin-top:20px; }
+        .photo-grid a img { width:100%; height:160px; object-fit:cover; display:block; border-radius:4px; }
+        @media (max-width:900px){ .photo-grid { grid-template-columns:repeat(2,1fr); } .photo-grid a img { height:140px; } }
+        @media (max-width:480px){ .photo-grid a img { height:120px; } }
+    </style>
+</head>
+<body>
+
+            <header>
+        <div class="main-container header-content">
+            <a href="../../uz-cyrl.html" class="logo">Асадбек Кенжаев</a>
+            <div class="hamburger">
+                <span class="line"></span>
+                <span class="line"></span>
+            </div>
+        </div>
+
+        <!-- Sabit sağ üstte görünecek dil + contact konteyneri -->
+        <div class="top-controls" aria-hidden="false">
+            <ul class="lang-switcher">
+                <li><a href="gallery-item-6.html" class="lang-inactive">EN</a></li>
+                <li><a href="gallery-item-6-tr.html" class="lang-inactive">TR</a></li>
+                <li><a href="gallery-item-6-ru.html" class="lang-inactive">RU</a></li>
+                <li><a href="gallery-item-6-uz.html" class="lang-inactive">UZ</a></li>
+                <li><a href="gallery-item-6-uz-cyrl.html" class="lang-active">ЎЗ</a></li>
+            </ul>
+            <a href="../../pages/contact/contact-uz-cyrl.html" class="btn btn-primary nav-contact-btn">Алоқа</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- NAV: Ana sayfadaki gibi navbar -->
+        <div class="nav-bar-wrapper" id="main-nav">
+            <div class="main-container nav-bar-content">
+                <div class="nav-menu">
+                    <ul class="nav-links">
+                        <li><a href="../../pages/about/about-uz-cyrl.html">Мен ҳақимда</a></li>
+                        <li><a href="../../pages/timeline/timeline-uz-cyrl.html">Вақт жадвали</a></li>
+                        <li><a href="../../uz-cyrl.html#projects-preview" class="nav-active">Галерея</a></li>
+                        <li><a href="../../pages/projects/projects-uz-cyrl.html">Лойиҳалар</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="page-content">
+        <div class="container">
+            <a href="../../uz-cyrl.html#projects-preview" class="btn-back" style="margin-top: 40px;">&larr; Галереяга қайтиш</a>
+
+            <section id="about-new" class="about-page-grid" style="padding-top: 0;">
+                <aside class="about-side-heading"><h2>ҲИКОЯ</h2></aside>
+                <div class="about-main-content">
+                    <div class="about-text-block">
+                        <h1>Истанбул осмонида келажак акси: Teknofest 2023 ва рекордлар майдони</h1>
+                        <div class="card-meta" style="margin-bottom: 25px; font-size: 1rem;">
+                            <span><i class="fas fa-calendar-alt"></i> 2023 йил, 27 апрель – 1 май (11-синф)</span>
+                            <span style="margin-left:12px;"><i class="fas fa-map-marker-alt"></i> Отатурк аэропорти, Истанбул</span>
+                        </div>
+                        <span class="card-tag" style="position: static; display: inline-block; background-color: var(--border-light); color: var(--primary-hover); margin-bottom: 15px;">Технология ва Етакчилик</span>
+                        <p>11-синфнинг баҳорида мактабимиз жамоаси олдида катта мақсад турарди: ўқувчиларни дунёнинг энг йирик технология фестивали — <strong>Teknofest 2023</strong> га олиб бориш. Бундай массовкали тадбирларда хавфсизлик ва тартибни таъминлаш ўқитувчилар учун осон вазифа эмасди. Шу нуқтада мен <strong>Мактаб Сардори (Ўқувчилар Кенгаши Раиси)</strong> сифатида маъмурият ва ўқувчилар ўртасидаги асосий боғловчи бўғин вазифасини бажардим. Автобуслар карвонини шакллантиришдан тортиб, майдондаги ҳаракатланиш режасигача бўлган жараёнларда ташкилий қўмитанинг фаол аъзоси сифатида ўқитувчиларимга елкадош бўлдим.</p>
+                    </div>
+
+                    <div class="about-image-block"><img src="../../images/item6-main-1.jpg" alt="Teknofest умумий кўриниш"></div>
+                    
+                    <div class="about-text-block">
+                        <h3>Дунё рекорди ва "Инсон денгизи"</h3>
+                        <p>Отатурк аэропортига етиб келганимизда, кўз ўнгимизда ҳайратланарли манзара намоён бўлди. Биз шунчаки кўргазмага эмас, тарихга гувоҳ бўлишга келгандик. Кейинчалик расмий маълумотлардан билдимки, фестивалга 5 кун ичида жами <strong>2 миллион 547 минг</strong> киши ташриф буюриб, дунё рекордини янгилаган экан. Бундай улкан оломон ("инсон денгизи") ичида синфларни жипслаштириш ва ҳеч кимнинг гуруҳдан қолиб кетмаслигини назорат қилишда менинг зиммамга ҳам катта масъулият тушди.</p>
+                    </div>
+                    
+                    <div class="about-image-block"><img src="../../images/item6-main-2.jpg" alt="Teknofest'даги оломон"></div>
+                    
+                    <div class="about-text-block">
+                        <h3>Технология мўъжизалари: Қизилелма ва Тогг</h3>
+                        <p>Аэропортнинг учиш-қўниш йўлаклари энди самолётлар учун эмас, Туркиянинг келажак технологиялари учун саҳна эди. Биз у ерда илк бор халққа намойиш этилган <strong>Bayraktar Kızılelma</strong> (Қизилелма) учувчисиз жанговар самолётини ва қанотлари букланадиган <strong>Bayraktar TB3</strong> ни ўз кўзимиз билан кўрдик. Уларнинг ҳайбати одамни лол қолдирарди.</p>
+                        <p>Бундан ташқари, маҳаллий муҳандислик ғурури бўлган <strong>Togg T10X</strong> электромобилининг ичига назар ташлаш имкони бўлди. Стендлар орасида юрарканмиз, сунъий интеллект, киберхавфсизлик ва қайта тикланувчи энергия бўйича тенгдошларимнинг инновацион лойиҳаларини кўриб, ҳайратим ошди.</p>
+                    </div>
+                    
+                    <div class="about-image-block"><img src="../../images/item6-main-3.jpg" alt="Bayraktar Kızılelma ва технология кўргазмалари"></div>
+                    
+                    <div class="about-text-block">
+                        <h3>Осмондаги рақс ва Илҳом</h3>
+                        <p>Кун давомида бошимиз узра <strong>"Турк Юлдузлари"</strong> (Türk Yıldızları) ва <strong>"Солотурк"</strong> (Solotürk) жамоаларининг ақл бовар қилмас авиашоулари давом этди. Реактив двигателларнинг гумбурлаши юрагимиздаги ватанпарварлик ва технологияга бўлган иштиёқни жўштириб юборди.</p>
+                        <p>Айниқса, саҳнада "Миллий технология ҳамлеси"нинг меъмори <strong>Селчук Байрактар</strong>ни ва давлат раҳбарларини кўриш биз ёшлар учун унутилмас лаҳза бўлди. Уларнинг "Яратувчи бўлинг, истеъмолчи эмас" деган чақириқлари менга қаттиқ таъсир қилди.</p>
+                    </div>
+                    
+                    <div class="about-image-block"><img src="../../images/item6-main-4.jpg" alt="Селчук Байрактар ва ҳаво шоулари"></div>
+                    
+                    <div class="about-text-block">
+                        <h3>Хулоса</h3>
+                        <p>Бу сафар мен учун шунчаки томоша бўлмади. У ердаги илмий муҳит ва рақобат руҳи менинг келажакдаги йўлимни ойдинлаштирди. Айнан Teknofest майдонида, дронлар ва роботлар қуршовида, менда веб-технологиялар ва сунъий интеллектни бирлаштирувчи илк лойиҳа ғоялари туғила бошлади. Мен уйга "Мен ҳам шундай лойиҳалар қила оламан" деган қатъий ишонч билан қайтдим.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="photo-gallery-bottom">
+                <div class="container">
+                    <h2>Тадбир Видеолари</h2>
+                    <p class="section-subtitle" style="text-align: center;">Фестивал майдонидан видеолар.</p>
+
+                    
+                    <div class="video-grid-normal">
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/pt1K4vTrTMk?si=5w06TTOv1in0e06T" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+
+                        <iframe width="315" height="560" src="https://www.youtube.com/embed/J8eFhZeSliA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
+
+                </div>
+            </section>
+
+            <section class="photo-gallery-bottom" style="background-color: var(--background-white); border-top: 2px solid var(--background-light);">
+                <div class="container">
+                    <h2>Қўшимча Тадбир Фотолари</h2>
+                    <p class="section-subtitle" style="text-align: center;">Технофест 2023 дан кўпроқ лаҳзалар.</p>
+                    <div class="photo-grid">
+                        <a href="images/item6-sub-1.jpg"><img src="../../images/item6-sub-1.jpg" alt=""></a>
+                        <a href="images/item6-sub-2.jpg"><img src="../../images/item6-sub-2.jpg" alt=""></a>
+                        <a href="images/item6-sub-3.jpg"><img src="../../images/item6-sub-3.jpg" alt=""></a>
+                        <a href="images/item6-sub-4.jpg"><img src="../../images/item6-sub-4.jpg" alt=""></a>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Asadbek Kenjaev. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <div id="video-lightbox" class="video-modal-overlay" aria-hidden="true">
+        <button id="video-modal-close" class="modal-close" aria-label="Close video">&times;</button>
+        <div class="video-modal-content"></div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const videoCards = document.querySelectorAll('.video-card');
+            const lightbox = document.getElementById('video-lightbox');
+            const lightboxContent = document.querySelector('#video-lightbox .video-modal-content');
+            const closeButton = document.getElementById('video-modal-close');
+
+            if (!lightbox || !lightboxContent || !closeButton) return;
+
+            function openModal() {
+                lightbox.style.display = 'flex';
+                lightbox.setAttribute('aria-hidden', 'false');
+            }
+
+            function closeModal() {
+                lightbox.style.display = 'none';
+                lightboxContent.innerHTML = '';
+                lightbox.setAttribute('aria-hidden', 'true');
+            }
+
+            closeButton.addEventListener('click', closeModal);
+            lightbox.addEventListener('click', (e) => { if (e.target === lightbox) closeModal(); });
+
+            videoCards.forEach(card => {
+                const videoSrc = card.getAttribute('data-video-src');
+                if (!videoSrc) return;
+
+                const activate = () => {
+                    if (videoSrc.includes('youtube.com') || videoSrc.includes('youtu.be')) {
+                        const separator = videoSrc.includes('?') ? '&' : '?';
+                        const src = `${videoSrc}${separator}autoplay=1&rel=0`;
+                        lightboxContent.innerHTML = `<iframe src="${src}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>`;
+                    } else {
+                        lightboxContent.innerHTML = `
+                            <video controls autoplay style="width:100%; height:100%; object-fit: contain;">
+                                <source src="${videoSrc}" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        `;
+                    }
+                    openModal();
+                };
+
+                card.addEventListener('click', activate);
+                card.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') activate(); });
+
+                const previewVideo = card.querySelector('video');
+                const playButton = card.querySelector('.story-play-button');
+                if (previewVideo) {
+                    card.addEventListener('mouseenter', () => { previewVideo.play(); if (playButton) playButton.style.opacity='0'; });
+                    card.addEventListener('mouseleave', () => { previewVideo.pause(); previewVideo.currentTime = 0; if (playButton) playButton.style.opacity='1'; });
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
