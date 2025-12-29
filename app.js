@@ -297,12 +297,26 @@ document.addEventListener("DOMContentLoaded", function() {
 function toggleTestimonial(button) {
     const testimonialCard = button.closest('.testimonial-card');
     const fullText = testimonialCard.querySelector('.testimonial-full');
+    const originalText = button.getAttribute('data-original-text') || button.textContent;
+    
+    // Dil bazlı metinler
+    const readLessTexts = {
+        'Read More': 'Read Less',
+        'Devamını Oku': 'Daha Az Oku',
+        'Читать далее': 'Свернуть',
+        'Davomini O\'qish': 'Kamroq Ko\'rish',
+        'Давомини Ўқиш': 'Камроқ Кўриш'
+    };
+    
+    if (!button.hasAttribute('data-original-text')) {
+        button.setAttribute('data-original-text', originalText);
+    }
     
     if (fullText.style.display === 'none' || fullText.style.display === '') {
         fullText.style.display = 'block';
-        button.textContent = 'Read Less';
+        button.textContent = readLessTexts[originalText] || 'Read Less';
     } else {
         fullText.style.display = 'none';
-        button.textContent = 'Read More';
+        button.textContent = originalText;
     }
 }
