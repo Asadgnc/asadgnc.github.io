@@ -290,3 +290,19 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
 });
+
+/* -------------------------
+   Testimonial Read More Toggle
+   ------------------------- */
+function toggleTestimonial(button) {
+    const testimonialCard = button.closest('.testimonial-card');
+    const fullText = testimonialCard.querySelector('.testimonial-full');
+    
+    if (fullText.style.display === 'none' || fullText.style.display === '') {
+        fullText.style.display = 'block';
+        button.textContent = 'Read Less';
+    } else {
+        fullText.style.display = 'none';
+        button.textContent = 'Read More';
+    }
+}
