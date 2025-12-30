@@ -2043,11 +2043,12 @@ body:not(.home) .card-image img {
 body:not(.home) .sub-photo,
 body:not(.home) .photo-grid img {
     width: 100% !important;
-    height: 280px !important;
+    height: 320px !important;
     max-width: 100% !important;
-    max-height: 280px !important;
-    object-fit: cover !important;
+    max-height: 320px !important;
+    object-fit: contain !important;
     object-position: center !important;
+    background-color: #0e0e0e !important;
 }
 
 /* Hero/large masthead guards: prevent them from occupying full viewport on inner pages */
@@ -2107,8 +2108,8 @@ body:not(.home) h2 { font-size: clamp(1.1rem, 2.6vw, 1.8rem) !important; }
     }
     body:not(.home) .sub-photo,
     body:not(.home) .photo-grid img {
-        height: 240px !important;
-        max-height: 240px !important;
+        height: 280px !important;
+        max-height: 280px !important;
     }
 }
 
@@ -2290,11 +2291,12 @@ html body:not(.home) .project-thumb img {
 html body:not(.home) .sub-photo,
 html body:not(.home) .photo-grid img {
     width: 100% !important;
-    height: 280px !important;
+    height: 320px !important;
     max-width: 100% !important;
-    max-height: 280px !important;
-    object-fit: cover !important;
+    max-height: 320px !important;
+    object-fit: contain !important;
     object-position: center !important;
+    background-color: #0e0e0e !important;
 }
 
 /* Hero/large masthead guards: prevent them from occupying full viewport on inner pages */
@@ -2349,13 +2351,13 @@ html body:not(.home) h2 { font-size: clamp(1.1rem, 2.6vw, 1.8rem) !important; }
 /* Responsive tweaks */
 @media (max-width: 900px) {
     html body:not(.home) img,
-    html body:not(.home) .photo-grid img,
     html body:not(.home) .card-image img {
         max-height: 380px !important;
     }
     html body:not(.home) .sub-photo,
     html body:not(.home) .photo-grid img {
-        max-height: 220px !important;
+        height: 280px !important;
+        max-height: 280px !important;
     }
 }
 
@@ -2363,8 +2365,8 @@ html body:not(.home) h2 { font-size: clamp(1.1rem, 2.6vw, 1.8rem) !important; }
 /* Spesifik seçicilerle önceki global max-width / margin kurallarını geçersiz kılar */
 html body:not(.home) .photo-grid {
     display: grid !important;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)) !important;
-    gap: 16px !important;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)) !important;
+    gap: 20px !important;
     align-items: start !important;
     width: 100% !important;
     margin: 0 auto !important;
@@ -2374,26 +2376,27 @@ html body:not(.home) .photo-grid a {
     display: block !important;
     width: 100% !important;
     overflow: hidden !important;
-    border-radius: 8px !important;
+    border-radius: 12px !important;
 }
 
 html body:not(.home) .photo-grid img {
     display: block !important;
     width: 100% !important;
     max-width: 100% !important;
-    height: 200px !important;
-    max-height: 250px !important;
-    object-fit: cover !important;
+    height: 320px !important;
+    max-height: 320px !important;
+    object-fit: contain !important;
     object-position: center !important;
     margin: 0 !important;
-    border-radius: 8px !important;
+    border-radius: 12px !important;
+    background-color: #0e0e0e !important;
 }
 
 /* Mobilde biraz farklı yükseklik */
 @media (max-width: 680px) {
     html body:not(.home) .photo-grid img {
-        height: 180px !important;
-        max-height: 220px !important;
+        height: 280px !important;
+        max-height: 280px !important;
     }
 }
 
@@ -2660,11 +2663,12 @@ body:not(.home) .about-main-content .about-image-block img:hover {
 
 .photo-grid img {
     width: 100%;
-    height: 280px;
-    object-fit: cover;
+    height: 320px;
+    object-fit: contain;
     object-position: center;
     display: block;
     transition: transform 0.3s ease;
+    background-color: #0e0e0e;
 }
 
 .photo-grid a:hover img {
@@ -2684,7 +2688,8 @@ body:not(.home) .about-main-content .about-image-block img:hover {
     }
     
     .photo-grid img {
-        height: 240px;
+        height: 280px;
+        object-fit: contain;
     }
     
     .photo-gallery-bottom h2 {
@@ -2713,7 +2718,8 @@ body:not(.home) .about-main-content .about-image-block img:hover {
     }
     
     .photo-grid img {
-        height: 220px;
+        height: 260px;
+        object-fit: contain;
     }
     
     .photo-gallery-bottom h2 {
