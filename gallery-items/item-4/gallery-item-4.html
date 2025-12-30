@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -17,7 +17,7 @@
             padding-bottom: 56.25%; /* 16:9 oran */
             height: 0;
             width: 90%;
-            max-width: 900px; /* Videonun çok büyümesini engeller */
+            max-width: 900px; /* Videonun cok buyumesini engeller */
             background: #000;
         }
         #video-lightbox .video-modal-content iframe {
@@ -40,14 +40,14 @@
             </div>
         </div>
 
-        <!-- Sabit sağ üstte görünecek dil + contact konteyneri -->
+        <!-- Sabit sag ustte gorunecek dil + contact konteyneri -->
         <div class="top-controls" aria-hidden="false">
             <ul class="lang-switcher">
                 <li><a href="gallery-item-4.html" class="lang-active">EN</a></li>
                 <li><a href="gallery-item-4-tr.html" class="lang-inactive">TR</a></li>
                 <li><a href="gallery-item-4-ru.html" class="lang-inactive">RU</a></li>
                 <li><a href="gallery-item-4-uz.html" class="lang-inactive">UZ</a></li>
-                <li><a href="gallery-item-4-uz-cyrl.html" class="lang-inactive">ЎЗ</a></li>
+                <li><a href="gallery-item-4-uz-cyrl.html" class="lang-inactive">��</a></li>
             </ul>
             <a href="../../pages/contact/contact.html" class="btn btn-primary nav-contact-btn">Contact</a>
         </div>
@@ -147,13 +147,13 @@
                 <p class="section-subtitle" style="text-align: center;">More photos from the club events.</p>
                 
                 <div class="photo-grid">
-                    <a href="images/item4-sub-1.jpg" data-lightbox="event-gallery-photos"><img src="../../images/item4-sub-1.jpg" alt="Event photo 1"></a>
-                    <a href="images/item4-sub-2.jpg" data-lightbox="event-gallery-photos"><img src="../../images/item4-sub-2.jpg" alt="Event photo 2"></a>
-                    <a href="images/item4-sub-3.jpg" data-lightbox="event-gallery-photos"><img src="../../images/item4-sub-3.jpg" alt="Event photo 3"></a>
-                    <a href="images/item4-sub-4.jpg" data-lightbox="event-gallery-photos"><img src="../../images/item4-sub-4.jpg" alt="Event photo 4"></a>
-                    <a href="images/item4-sub-5.jpg" data-lightbox="event-gallery-photos"><img src="../../images/item4-sub-5.jpg" alt="Event photo 5"></a>
-                    <a href="images/item4-sub-6.jpg" data-lightbox="event-gallery-photos"><img src="../../images/item4-sub-6.jpg" alt="Event photo 6"></a>
-                    <a href="images/item4-sub-7.jpg" data-lightbox="event-gallery-photos"><img src="../../images/item4-sub-7.jpg" alt="Event photo 7"></a>
+                    <a href="../../images/item4-sub-1.jpg" data-lightbox="event-gallery-photos"><img src="../../images/item4-sub-1.jpg" alt="Event photo 1"></a>
+                    <a href="../../images/item4-sub-2.jpg" data-lightbox="event-gallery-photos"><img src="../../images/item4-sub-2.jpg" alt="Event photo 2"></a>
+                    <a href="../../images/item4-sub-3.jpg" data-lightbox="event-gallery-photos"><img src="../../images/item4-sub-3.jpg" alt="Event photo 3"></a>
+                    <a href="../../images/item4-sub-4.jpg" data-lightbox="event-gallery-photos"><img src="../../images/item4-sub-4.jpg" alt="Event photo 4"></a>
+                    <a href="../../images/item4-sub-5.jpg" data-lightbox="event-gallery-photos"><img src="../../images/item4-sub-5.jpg" alt="Event photo 5"></a>
+                    <a href="../../images/item4-sub-6.jpg" data-lightbox="event-gallery-photos"><img src="../../images/item4-sub-6.jpg" alt="Event photo 6"></a>
+                    <a href="../../images/item4-sub-7.jpg" data-lightbox="event-gallery-photos"><img src="../../images/item4-sub-7.jpg" alt="Event photo 7"></a>
                 </div>
             </div>
         </section>
@@ -184,7 +184,7 @@
                 
                 const closeModal = () => {
                     lightbox.style.display = 'none';
-                    lightboxContent.innerHTML = ''; // İçeriği temizle (videoyu durdurur)
+                    lightboxContent.innerHTML = ''; // Icerigi temizle (videoyu durdurur)
                 };
 
                 closeButton.addEventListener('click', closeModal);
@@ -201,7 +201,7 @@
                     card.addEventListener('click', () => {
                         lightbox.style.display = 'flex';
                         
-                        // SADECE "autoplay=1" PARAMETRESİ KULLANILDI
+                        // SADECE "autoplay=1" PARAMETRESI KULLANILDI
                         lightboxContent.innerHTML = `
                             <iframe 
                                 src="${videoSrc}?autoplay=1" 
@@ -219,3 +219,4 @@
 
 </body>
 </html>
+

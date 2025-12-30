@@ -774,7 +774,7 @@ header {
 .projects-preview-grid .project-image img {
     width: 100%;
     height: 100%;
-    object-fit: contain;
+    object-fit: cover;
     object-position: center;
     display: block;
     position: relative;
@@ -787,7 +787,7 @@ header {
 .projects-preview-grid .card-image img {
     width: 100%;
     height: 100%;
-    object-fit: contain;
+    object-fit: cover;
     object-position: center;
     display: block;
     transform-origin: center;
@@ -1902,8 +1902,7 @@ footer {
 /* Image area - flexible height to preserve aspect ratio */
 .card-image {
     width: 100%;
-    min-height: 240px;
-    max-height: 320px;
+    height: 280px;
     overflow: hidden;
     background: #0b0b0b;
     position: relative;
@@ -1914,7 +1913,8 @@ footer {
 .card-image img {
     width: 100%;
     height: 100%;
-    object-fit: contain;
+    object-fit: cover;
+    object-position: center;
     display: block;
     transition: transform .35s ease;
 }
@@ -2013,11 +2013,8 @@ body:not(.home) img,
 body:not(.home) picture,
 body:not(.home) video,
 body:not(.home) iframe,
-body:not(.home) .project-image img,
-body:not(.home) .card-image img,
 body:not(.home) .about-image-block img,
 body:not(.home) .hero-image,
-body:not(.home) .gallery-card img,
 body:not(.home) .photo-grid img,
 body:not(.home) .testimonial-photo {
     width: 100% !important;
@@ -2029,14 +2026,28 @@ body:not(.home) .testimonial-photo {
     margin: 0 auto !important;
 }
 
+/* Galeri kartları için özel kural - sabit yükseklik */
+body:not(.home) .gallery-card .card-image img,
+body:not(.home) .project-image img,
+body:not(.home) .card-image img {
+    width: 100% !important;
+    height: 100% !important;
+    max-width: none !important;
+    max-height: none !important;
+    object-fit: cover !important;
+    object-position: center !important;
+    margin: 0 !important;
+}
+
 /* thumbnails / sub photos daha küçük */
 body:not(.home) .sub-photo,
-body:not(.home) .photo-grid img,
-body:not(.home) .projects-preview-grid .project-image,
-body:not(.home) .card-image {
-    max-width: 420px !important;
-    max-height: 220px !important;
-    height: auto !important;
+body:not(.home) .photo-grid img {
+    width: 100% !important;
+    height: 280px !important;
+    max-width: 100% !important;
+    max-height: 280px !important;
+    object-fit: cover !important;
+    object-position: center !important;
 }
 
 /* Hero/large masthead guards: prevent them from occupying full viewport on inner pages */
@@ -2091,13 +2102,13 @@ body:not(.home) h2 { font-size: clamp(1.1rem, 2.6vw, 1.8rem) !important; }
 /* Responsive tweaks */
 @media (max-width: 900px) {
     body:not(.home) img,
-    body:not(.home) .photo-grid img,
     body:not(.home) .card-image img {
         max-height: 380px !important;
     }
     body:not(.home) .sub-photo,
     body:not(.home) .photo-grid img {
-        max-height: 220px !important;
+        height: 240px !important;
+        max-height: 240px !important;
     }
 }
 
@@ -2248,12 +2259,8 @@ html body:not(.home) img,
 html body:not(.home) picture,
 html body:not(.home) video,
 html body:not(.home) iframe,
-html body:not(.home) .project-thumb img,
-html body:not(.home) .project-image img,
-html body:not(.home) .card-image img,
 html body:not(.home) .about-image-block img,
 html body:not(.home) .hero-image,
-html body:not(.home) .gallery-card img,
 html body:not(.home) .photo-grid img,
 html body:not(.home) .testimonial-photo {
     width: 100% !important;
@@ -2265,14 +2272,29 @@ html body:not(.home) .testimonial-photo {
     margin: 0 auto !important;
 }
 
+/* Galeri ve proje kartları için özel kural */
+html body:not(.home) .gallery-card .card-image img,
+html body:not(.home) .project-image img,
+html body:not(.home) .card-image img,
+html body:not(.home) .project-thumb img {
+    width: 100% !important;
+    height: 100% !important;
+    max-width: none !important;
+    max-height: none !important;
+    object-fit: cover !important;
+    object-position: center !important;
+    margin: 0 !important;
+}
+
 /* thumbnails / sub photos daha küçük */
 html body:not(.home) .sub-photo,
-html body:not(.home) .photo-grid img,
-html body:not(.home) .projects-preview-grid .project-image,
-html body:not(.home) .card-image {
-    max-width: 420px !important;
-    max-height: 220px !important;
-    height: auto !important;
+html body:not(.home) .photo-grid img {
+    width: 100% !important;
+    height: 280px !important;
+    max-width: 100% !important;
+    max-height: 280px !important;
+    object-fit: cover !important;
+    object-position: center !important;
 }
 
 /* Hero/large masthead guards: prevent them from occupying full viewport on inner pages */
@@ -2341,8 +2363,8 @@ html body:not(.home) h2 { font-size: clamp(1.1rem, 2.6vw, 1.8rem) !important; }
 /* Spesifik seçicilerle önceki global max-width / margin kurallarını geçersiz kılar */
 html body:not(.home) .photo-grid {
     display: grid !important;
-    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)) !important;
-    gap: 12px !important;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)) !important;
+    gap: 16px !important;
     align-items: start !important;
     width: 100% !important;
     margin: 0 auto !important;
@@ -2359,18 +2381,19 @@ html body:not(.home) .photo-grid img {
     display: block !important;
     width: 100% !important;
     max-width: 100% !important;
-    height: 120px !important;            /* thumbnail yüksekliği */
-    max-height: 160px !important;
+    height: 200px !important;
+    max-height: 250px !important;
     object-fit: cover !important;
-    margin: 0 !important;                /* önceki margin:auto'yu kaldırır */
+    object-position: center !important;
+    margin: 0 !important;
     border-radius: 8px !important;
 }
 
-/* Mobilde biraz yüksek yap */
+/* Mobilde biraz farklı yükseklik */
 @media (max-width: 680px) {
     html body:not(.home) .photo-grid img {
-        height: 160px !important;
-        max-height: 200px !important;
+        height: 180px !important;
+        max-height: 220px !important;
     }
 }
 
@@ -2636,12 +2659,12 @@ body:not(.home) .about-main-content .about-image-block img:hover {
 }
 
 .photo-grid img {
-    width: 400%;
-    height: auto;
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+    object-position: center;
     display: block;
     transition: transform 0.3s ease;
-    margin-left: -150%;
-    margin-right: -150%;
 }
 
 .photo-grid a:hover img {
@@ -2661,9 +2684,7 @@ body:not(.home) .about-main-content .about-image-block img:hover {
     }
     
     .photo-grid img {
-        width: 200%;
-        margin-left: -50%;
-        margin-right: -50%;
+        height: 240px;
     }
     
     .photo-gallery-bottom h2 {
@@ -2692,9 +2713,7 @@ body:not(.home) .about-main-content .about-image-block img:hover {
     }
     
     .photo-grid img {
-        width: 100%;
-        margin-left: 0;
-        margin-right: 0;
+        height: 220px;
     }
     
     .photo-gallery-bottom h2 {
