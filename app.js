@@ -320,3 +320,33 @@ function toggleTestimonial(button) {
         button.textContent = originalText;
     }
 }
+/* -------------------------
+   Gallery Filter by Year (Homepage)
+   ------------------------- */
+document.addEventListener('DOMContentLoaded', function() {
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const galleryCards = document.querySelectorAll('.gallery-card');
+    
+    filterButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            // Check which attribute this button uses (data-year or data-filter)
+            const selectedYear = this.getAttribute('data-year') || this.getAttribute('data-filter');
+            
+            // Update active button
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+            this.classList.add('active');
+            
+            // Filter gallery cards
+            galleryCards.forEach(card => {
+                const cardYear = card.getAttribute('data-year');
+                
+                if (selectedYear === 'all' || cardYear === 'all' || cardYear === selectedYear) {
+                    card.style.display = 'flex';
+                    card.style.animation = 'fadeIn 0.5s ease';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+    });
+});
